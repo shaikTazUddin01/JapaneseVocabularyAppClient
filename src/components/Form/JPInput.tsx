@@ -6,9 +6,9 @@ const JPInput = ({ label, name, type, defaultFieldValue }) => {
 
 return (
   <div className="form-control">
-    <label className="label">
+    {/* <label className="label">
       <span className="label-text">{label}</span>
-    </label>
+    </label> */}
     <input
       type={type}
       placeholder={`${label}`}

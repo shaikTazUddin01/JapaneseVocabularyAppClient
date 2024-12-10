@@ -1,23 +1,19 @@
-
 import { Link } from "react-router-dom";
-import loginImage from "../../assets/login1.webp"
-import login1 from "../../assets/japan.webp"
+import loginImage from "../../assets/login1.webp";
+import login1 from "../../assets/japan.webp";
 import JPForm from "../../components/Form/JPForm";
 import JPInput from "../../components/Form/JPInput";
 
-
-
 const Login = () => {
-
-  const handleLogin=(data)=>{
+  const handleLogin = (data) => {
     console.log(data);
-  }
-    return (
-        <div
+  };
+  return (
+    <div
       className=" min-h-screen w-full lg:p-20 bg-cover flex justify-center items-center"
       style={{ backgroundImage: `url(${loginImage})` }}
     >
-      <div className="bg-white rounded-2xl h-full  grid  grid-cols-1 lg:grid-cols-2 shadow items-center mx-auto ">
+      <div className="bg-white rounded-2xl h-full grid grid-cols-1 lg:grid-cols-2 shadow items-center mx-auto ">
         <div className="min-w-[500px]">
           <img
             alt="login image"
@@ -32,9 +28,7 @@ const Login = () => {
             </h1>
             <p>To Learn Japanese Language</p>
           </div>
-          <JPForm
-            onSubmit={handleLogin}
-          >
+          <JPForm onSubmit={handleLogin}>
             <div className="space-y-2 text-left">
               <JPInput
                 label="Email"
@@ -57,25 +51,28 @@ const Login = () => {
                   Forgot Password?
                 </p>
               </Link>
-              <button className="w-full border bg-sky-600 rounded-xl py-[6px] text-white font-semibold hover:bg-sky-700
-              " type="submit">
+              <button
+                className="w-full border bg-sky-600 rounded-xl py-[6px] text-white font-semibold hover:bg-sky-700
+              "
+                type="submit"
+              >
                 Login
               </button>
             </div>
           </JPForm>
           <p>
             I Don&#39;t have an accout.?{" "}
-            <Link
+            <a
               className="text-blue-800 mt-1 hover:text-blue-700"
-              href={"/signup"}
+              href={"/registration"}
             >
-              Sign Up
-            </Link>
+              Registration
+            </a>
           </p>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Login;
