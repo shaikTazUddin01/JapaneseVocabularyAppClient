@@ -6,11 +6,17 @@ import Tutorials from "../pages/UserView/Tutorials";
 import Login from "../pages/Auth/Login";
 import Registration from "../pages/Auth/Registration";
 import ProtectedRouter from "./ProtectedRouter";
+import AdminLayout from "../layout/AdminLayout";
+import Dashboard from "../pages/Admin/Dashboard";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <ProtectedRouter><UserLayout /></ProtectedRouter>,
+    element: (
+      <ProtectedRouter>
+        <UserLayout />
+      </ProtectedRouter>
+    ),
     children: [
       {
         path: "",
@@ -19,6 +25,16 @@ export const router = createBrowserRouter([
       {
         path: "tutorials",
         element: <Tutorials />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        path: "",
+        element: <Dashboard />,
       },
     ],
   },

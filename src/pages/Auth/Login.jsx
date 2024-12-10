@@ -26,7 +26,15 @@ const Login = () => {
         dispatch(authInfo({ data: userInfo, token: token }));
 
         toast.success("login success", { id: toastId, duration: 3000 });
-        navigate("/");
+        if (userInfo?.role=="USER") {
+          navigate("/");
+        }else if(userInfo?.role=="ADMIN"){
+          navigate("/admin");
+
+        }else{
+          navigate("/login");
+
+        }
       } else {
         toast.error(res?.error?.data?.message, { id: toastId, duration: 3000 });
       }

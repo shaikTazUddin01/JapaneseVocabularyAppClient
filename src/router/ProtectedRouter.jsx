@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 const ProtectedRouter = ({ children }) => {
   const userInfo = useSelector((state) => state?.auth);
 
-  console.log(userInfo);
+//   console.log(userInfo);
 
   //   const user = undefined;
   if (!userInfo?.user && !userInfo?.token) {

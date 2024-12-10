@@ -1,4 +1,10 @@
+import useUser from "../../hooks/useUser";
+
 const Navbar = () => {
+  const currentUser = useUser();
+
+  console.log(currentUser);
+
   const navItems = (
     <>
       <li>
@@ -44,7 +50,17 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn" href="/login">Login</a>
+        {currentUser ? (
+          <img
+            src={currentUser?.image}
+            alt=""
+            className="size-10 rounded-full object-fill"
+          />
+        ) : (
+          <a className="btn" href="/login">
+            Login
+          </a>
+        )}
       </div>
     </div>
   );
