@@ -5,11 +5,12 @@ import Lessons from "../pages/UserView/Lessons";
 import Tutorials from "../pages/UserView/Tutorials";
 import Login from "../pages/Auth/Login";
 import Registration from "../pages/Auth/Registration";
+import ProtectedRouter from "./ProtectedRouter";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <UserLayout />,
+    element: <ProtectedRouter><UserLayout /></ProtectedRouter>,
     children: [
       {
         path: "",

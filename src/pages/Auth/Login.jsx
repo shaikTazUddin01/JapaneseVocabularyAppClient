@@ -1,12 +1,38 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginImage from "../../assets/login1.webp";
 import login1 from "../../assets/japan.webp";
 import JPForm from "../../components/Form/JPForm";
 import JPInput from "../../components/Form/JPInput";
-
+import { toast } from "sonner";
+import { useLoginApiMutation } from "../../redux/Features/Auth/authApi";
+import { useDispatch } from "react-redux";
+import { jwtDecode } from "jwt-decode";
+import { authInfo } from "../../redux/Features/Auth/authSlice";
 const Login = () => {
-  const handleLogin = (data) => {
-    console.log(data);
+  const navigate = useNavigate();
+  const [login] = useLoginApiMutation();
+  // dispatch
+  const dispatch = useDispatch();
+  const handleLogin = async (data) => {
+    const toastId = toast.loading("Loading..");
+    try {
+      const res = await login(data);
+      // console.log(res);
+      if (res?.data) {
+        // set and decode data
+        const token = res?.data?.data;
+        const userInfo = jwtDecode(token);
+        // dispatch user
+        dispatch(authInfo({ data: userInfo, token: token }));
+
+        toast.success("login success", { id: toastId, duration: 3000 });
+        navigate("/");
+      } else {
+        toast.error(res?.error?.data?.message, { id: toastId, duration: 3000 });
+      }
+    } catch (error) {
+      toast.error(error, { id: toastId, duration: 3000 });
+    }
   };
   return (
     <div

@@ -5,22 +5,21 @@ import loginImage from "../../assets/japan.webp";
 import JPForm from "../../components/Form/JPForm";
 
 import JPInput from "../../components/Form/JPInput";
-import { useSignupApiMutation } from "../../redux/Features/Auth/aurhApi";
+import { useSignupApiMutation } from "../../redux/Features/Auth/authApi";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-  const nevigate=useNavigate()
+  const nevigate = useNavigate();
   // create user
   const [createUser] = useSignupApiMutation();
-  
 
   // console.log(imagePreview);
   // handle login
   const handleSignUp = async (fieldsValue) => {
-    const toastId=toast.loading("Loading..")
+    const toastId = toast.loading("Loading..");
     try {
       const formData = new FormData();
       formData.append("data", JSON.stringify(fieldsValue));
@@ -29,10 +28,10 @@ const Registration = () => {
       const res = await createUser(formData);
       console.log(res?.error?.data?.message);
       if (res?.data) {
-        toast.success("registration success",{id:toastId,duration:3000})
-        nevigate('/login')
-      }else{
-        toast.error(res?.error?.data?.message,{id:toastId,duration:3000})
+        toast.success("registration success", { id: toastId, duration: 3000 });
+        nevigate("/login");
+      } else {
+        toast.error(res?.error?.data?.message, { id: toastId, duration: 3000 });
       }
     } catch (error) {
       console.log(error);
