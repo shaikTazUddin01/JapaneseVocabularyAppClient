@@ -19,7 +19,7 @@ const[createNewLesson]=useCreateLessonMutation()
       authId: currentUser?.userId,
     };
 
-    console.log(newLesson);
+    // console.log(newLesson);
 
     try {
       const res = await createNewLesson(newLesson);

@@ -30,7 +30,7 @@ const handleCancel=()=>{
       const res = await updateRole(updateData);
       // console.log(res);
       if (res?.data) {
-        toast.success("login success", { id: toastId, duration: 3000 });
+        toast.success("update success", { id: toastId, duration: 3000 });
         setIsModalOpen(false);
       } else {
         toast.error(res?.error?.data?.message, { id: toastId, duration: 3000 });

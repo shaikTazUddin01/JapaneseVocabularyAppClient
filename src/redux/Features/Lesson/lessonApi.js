@@ -1,6 +1,5 @@
 import { baseApi } from "../../Api/baseApi";
 
-
 export const lessonApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     createLesson: builder.mutation({
@@ -9,24 +8,40 @@ export const lessonApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["lesson"],
     }),
-  
-    // getUser: builder.query({
-    //   query: () => ({
-    //     url: "/auth/getUser",
-    //     method: "GET",
-    //   }),
-    //   providesTags:["user"]
-    // }),
-    // updateUser: builder.mutation({
-    //   query: (data) => ({
-    //     url: "/auth/updateUser",
-    //     method: "PATCH",
-    //     body: data,
-    //   }),
-    //   invalidatesTags:["user"]
-    // }),
+
+    getLesson: builder.query({
+      query: () => ({
+        url: "/lesson/",
+        method: "GET",
+      }),
+      providesTags: ["lesson"],
+    }),
+    DeleteLesson: builder.mutation({
+      query: (id) => ({
+        url: `/lesson/delete/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["lesson"],
+    }),
+    updateLesson: builder.mutation({
+      query: (data) => {
+        // console.log("-->>",data);
+        return {
+          url: `/lesson/updatelesson/${data?.id}`,
+          method: "PATCH",
+          body: data?.data,
+        };
+      },
+      invalidatesTags: ["lesson"],
+    }),
   }),
 });
 
-export const {useCreateLessonMutation} = lessonApi;
+export const {
+  useCreateLessonMutation,
+  useGetLessonQuery,
+  useDeleteLessonMutation,
+  useUpdateLessonMutation,
+} = lessonApi;
