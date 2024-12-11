@@ -8,6 +8,11 @@ import Registration from "../pages/Auth/Registration";
 import ProtectedRouter from "./ProtectedRouter";
 import AdminLayout from "../layout/AdminLayout";
 import Dashboard from "../pages/Admin/Dashboard";
+import ManageUser from "../pages/Admin/ManageUser";
+import CreateLesson from "../pages/Admin/CreateLesson";
+import ManageLesson from "../pages/Admin/ManageLesson";
+import CreateVocabulary from "../pages/Admin/CreateVocabulary";
+import ManageVacabulary from "../pages/Admin/ManageVacabulary";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +40,26 @@ export const router = createBrowserRouter([
       {
         path: "",
         element: <Dashboard />,
+      },
+      {
+        path: "manageUser",
+        element: <ManageUser />,
+      },
+      {
+        path: "createLesson",
+        element: <CreateLesson />,
+      },
+      {
+        path: "manageLesson",
+        element: <ManageLesson />,
+      },
+      {
+        path: "createVocabulary",
+        element: <CreateVocabulary />,
+      },
+      {
+        path: "manageVocabulary",
+        element: <ManageVacabulary />,
       },
     ],
   },
