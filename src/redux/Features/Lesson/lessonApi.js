@@ -36,6 +36,17 @@ export const lessonApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["lesson"],
     }),
+    addVoc: builder.mutation({
+      query: (data) => {
+        // console.log("-->>",data);
+        return {
+          url: `/lesson/addeeVoca`,
+          method: "PATCH",
+          body: data,
+        };
+      },
+      invalidatesTags: ["lesson"],
+    }),
   }),
 });
 
@@ -44,4 +55,5 @@ export const {
   useGetLessonQuery,
   useDeleteLessonMutation,
   useUpdateLessonMutation,
+  useAddVocMutation
 } = lessonApi;

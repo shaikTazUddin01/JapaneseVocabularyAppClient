@@ -6,9 +6,9 @@ const JPSelect = ({name,label,items,defaultFieldValue}) => {
     const {register}=useFormContext()
     return (
         <div className="form-control ">
-        <label className="label">
+        {/* <label className="label">
           <span className="label-text">{label}</span>
-        </label>
+        </label> */}
 
         <select
           className="select input input-bordered w-full capitalize"
