@@ -47,6 +47,30 @@ export const lessonApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["lesson"],
     }),
+    // delete vocabulary
+    deleteVoc: builder.mutation({
+      query: (data) => {
+        // console.log("-->>",data);
+        return {
+          url: `/lesson/deleteVoca`,
+          method: "DELETE",
+          body: data,
+        };
+      },
+      invalidatesTags: ["lesson"],
+    }),
+    // update vocabulary
+    updateVoc: builder.mutation({
+      query: (data) => {
+        // console.log("-->>",data);
+        return {
+          url: `/lesson/updateVoca`,
+          method: "PATCH",
+          body: data,
+        };
+      },
+      invalidatesTags: ["lesson"],
+    }),
   }),
 });
 
@@ -55,5 +79,7 @@ export const {
   useGetLessonQuery,
   useDeleteLessonMutation,
   useUpdateLessonMutation,
-  useAddVocMutation
+  useAddVocMutation,
+  useDeleteVocMutation,
+  useUpdateVocMutation
 } = lessonApi;

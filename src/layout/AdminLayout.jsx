@@ -18,37 +18,37 @@ const AdminLayout = () => {
 
   const menuItems = [
     {
-      key: "6",
+      key: "1",
       icon: <UserOutlined />,
       label: "Dashboard",
       path: "/admin",
     },
     {
-      key: "5",
+      key: "2",
       icon: <UserOutlined />,
       label: "Manage User",
       path: "/admin/manageUser",
     },
     {
-      key: "1",
+      key: "3",
       icon: <UserOutlined />,
       label: "Create Lesson",
       path: "/admin/createLesson",
     },
     {
-      key: "2",
+      key: "4",
       icon: <VideoCameraOutlined />,
       label: "Manage Lesson",
       path: "/admin/manageLesson",
     },
     {
-      key: "3",
+      key: "5",
       icon: <UploadOutlined />,
       label: "Create Vocabulary",
       path: "/admin/createVocabulary",
     },
     {
-      key: "4",
+      key: "6",
       icon: <UploadOutlined />,
       label: "Manage Vocabulary",
       path: "/admin/manageVocabulary",

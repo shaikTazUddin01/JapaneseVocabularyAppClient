@@ -8,7 +8,7 @@ const CreateLesson = () => {
   const currentUser = useUser();
 const[createNewLesson]=useCreateLessonMutation()
 
-  console.log(currentUser);
+  // console.log(currentUser);
 
   const handleCreate = async(data) => {
     const toastId = toast.loading("Loading..");

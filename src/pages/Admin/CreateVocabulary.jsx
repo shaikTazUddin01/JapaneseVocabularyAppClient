@@ -19,17 +19,15 @@ const CreateVocabulary = () => {
     const newVoc = {
       word: data?.word,
       pronunciation: data?.pronunciation,
-      whentoSay: data?.whenToSay,
+      whenToSay: data?.whenToSay,
       lessonNo: Number(data?.lessonNumber),
       adminEmail: currentUser?.email,
+      meaning:data?.meaning
     };
-
-    console.log(newVoc);
 
     try {
       const res = await addedVoc(newVoc);
 
-      console.log(res);
       if (res?.data) {
         toast.success("New Lesson Added", { id: toastId, duration: 3000 });
       } else {
@@ -47,15 +45,16 @@ const CreateVocabulary = () => {
   //   console.log(lessonNo);
 
   return (
-    <div className="min-h-[81vh] flex flex-col items-center py-20">
+    <div className="min-h-[81vh] flex flex-col items-center py-10">
       <h1 className="text-2xl text-center font-semibold">
         Create New Vocabulary
       </h1>
-      <div className="w-[45%] mx-auto shadow-xl rounded-lg ">
+      <div className="w-[45%] mx-auto shadow-xl rounded-lg border mt-1">
         <JPForm onSubmit={handleCreate}>
           <div className="space-y-2">
             <JPInput name={"word"} label={"Word"} />
             <JPInput name={"pronunciation"} label={"Pronunciation"} />
+            <JPInput name={"meaning"} label={"Meaning"} />
             <JPInput name={"whenToSay"} label={"When to Say"} />
             <JPSelect items={lessonNo} label={"Lesson"} name={"lessonNumber"} />
             <button
