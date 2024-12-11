@@ -1,5 +1,6 @@
 import { Button, Space, Table } from "antd";
 import { useGetUserQuery } from "../../redux/Features/Auth/authApi";
+import UpdateUser from "../../components/Admin/user/UpdateUser";
 
 const columns = [
   {
@@ -34,7 +35,7 @@ const columns = [
     render: (item) => {
       return (
         <Space size="middle">
-          <Button type="primary">Edit</Button>
+         <UpdateUser userInFo={item}/>
           <Button type="">Delete</Button>
         </Space>
       );

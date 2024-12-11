@@ -21,11 +21,18 @@ export const authApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/auth/getUser",
         method: "GET",
-       
       }),
+      providesTags:["user"]
     }),
-    
+    updateUser: builder.mutation({
+      query: (data) => ({
+        url: "/auth/updateUser",
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags:["user"]
+    }),
   }),
 });
 
-export const { useSignupApiMutation ,useLoginApiMutation ,useGetUserQuery} = authApi;
+export const { useSignupApiMutation ,useLoginApiMutation ,useGetUserQuery,useUpdateUserMutation} = authApi;
