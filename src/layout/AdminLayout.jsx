@@ -8,7 +8,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
-
+import bg from "../assets/theme.png"
 const { Header, Sider, Content } = Layout;
 
 const AdminLayout = () => {
@@ -109,7 +109,7 @@ const AdminLayout = () => {
             }}
           />
         </Header>
-        <Content className="p-5">
+        <Content className="p-5 bg-cover bg-no-repeat" style={{backgroundImage:`url(${bg})`}}>
           <Outlet />
         </Content>
       </Layout>

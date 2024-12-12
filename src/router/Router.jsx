@@ -16,6 +16,7 @@ import ManageVacabulary from "../pages/Admin/ManageVacabulary";
 import VocabularyPage from "../pages/UserView/Vocabulary";
 import CreateTutorial from "../pages/Admin/CreateTutorial";
 import ManageTutorial from "../pages/Admin/ManageTutorial";
+import AdminProtectedRouter from "./AdminProtectedRouter";
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element:<AdminProtectedRouter> <AdminLayout /> </AdminProtectedRouter>,
     children: [
       {
         path: "",
