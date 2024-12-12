@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
-import loginImage from "../../assets/login1.webp";
-import login1 from "../../assets/japan.webp";
+import { useNavigate } from "react-router-dom";
+import loginImage from "../../assets/japan-bg.png";
+import login1 from "../../assets/japan2.jpg";
 import JPForm from "../../components/Form/JPForm";
 import JPInput from "../../components/Form/JPInput";
 import { toast } from "sonner";
@@ -47,20 +47,20 @@ const Login = () => {
       className=" min-h-screen w-full lg:p-20 bg-cover flex justify-center items-center"
       style={{ backgroundImage: `url(${loginImage})` }}
     >
-      <div className="bg-white rounded-2xl h-full grid grid-cols-1 lg:grid-cols-2 shadow items-center mx-auto ">
-        <div className="min-w-[500px]">
+      <div className="bg-white rounded-2xl h-full grid grid-cols-1 lg:grid-cols-2 shadow items-center mx-auto overflow-hidden">
+        <div className="">
           <img
             alt="login image"
-            className="rounded-2xl hidden lg:flex object-cover w-full h-full ml-10"
+            className="hidden lg:flex object-cover w-full h-full"
             src={login1}
           />
         </div>
         <div className="text-center mx-auto w-full lg:w-[80%] p-10">
-          <div className="space-y-1 mb-2">
+          <div className="space-y-1 ">
             <h1 className="text-sky-600 text-3xl lg:text-5xl font-bold ">
               Wellcome
             </h1>
-            <p>To Learn Japanese Language</p>
+            <p>日本語を学ぶには学びましょう</p>
           </div>
           <JPForm onSubmit={handleLogin}>
             <div className="space-y-2 text-left">
@@ -80,13 +80,9 @@ const Login = () => {
                 variant="bordered"
                 // defaultvalue="1234567"
               />
-              <Link href={"/forgotPassword"}>
-                <p className="text-right text-[14px] text-default-500 hover:text-blue-600">
-                  Forgot Password?
-                </p>
-              </Link>
+             
               <button
-                className="w-full border bg-sky-600 rounded-xl py-[6px] text-white font-semibold hover:bg-sky-700
+                className="w-full border bg-sky-600 rounded-xl py-[7px] text-white font-semibold hover:bg-sky-700
               "
                 type="submit"
               >
@@ -97,7 +93,7 @@ const Login = () => {
           <p>
             I Don&#39;t have an accout.?{" "}
             <a
-              className="text-blue-800 mt-1 hover:text-blue-700"
+              className="text-blue-800 hover:text-blue-700"
               href={"/registration"}
             >
               Registration

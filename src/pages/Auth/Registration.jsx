@@ -1,7 +1,6 @@
 import { useState } from "react";
-
-import login1 from "../../assets/login1.webp";
-import loginImage from "../../assets/japan.webp";
+import loginImage from "../../assets/japan-bg.png";
+import login1 from "../../assets/japan2.jpg";
 import JPForm from "../../components/Form/JPForm";
 
 import JPInput from "../../components/Form/JPInput";
@@ -55,22 +54,22 @@ const Registration = () => {
   return (
     <div
       className=" min-h-screen w-full lg:p-20 bg-cover flex justify-center items-center"
-      style={{ backgroundImage: `url(${login1})` }}
+      style={{ backgroundImage: `url(${loginImage})` }}
     >
-      <div className="bg-white rounded-2xl h-full  grid  grid-cols-1 lg:grid-cols-2 shadow items-center mx-auto">
-        <div>
+      <div className="bg-white rounded-2xl h-full  grid  grid-cols-1 lg:grid-cols-2 shadow items-center mx-auto overflow-hidden">
+        <div className=" h-full">
           <img
             alt="sign image"
-            className="rounded-2xl hidden lg:flex object-cover w-full h-full"
-            src={loginImage}
+            className="hidden lg:flex object-cover w-full h-full"
+            src={login1}
           />
         </div>
-        <div className="text-center mx-auto w-full lg:w-[90%] p-10 md:min-w-[550px] lg:min-w-[300px]">
-          <div className="space-y-1 mb-2">
+        <div className="text-center mx-auto w-full lg:w-[90%] p-5 md:p-10 md:min-w-[550px] lg:min-w-[300px]">
+          <div className="space-y-1 ">
             <h1 className="text-sky-600 text-3xl lg:text-5xl font-bold">
-              Wellcome
+            Registration
             </h1>
-            <p>Registration with your Information</p>
+            <p>お客様の情報による登録</p>
           </div>
           <JPForm onSubmit={handleSignUp}>
             <div className="text-left space-y-2">
@@ -134,7 +133,7 @@ const Registration = () => {
                 // : */}
               <button
                 className="w-full border bg-sky-600 rounded-xl py-[6px] text-white font-semibold hover:bg-sky-700
-              "
+                "
                 type="submit"
               >
                 Registration
@@ -142,10 +141,10 @@ const Registration = () => {
               {/* } */}
             </div>
           </JPForm>
-          <p>
+          <p className="-mt-4">
             I have an accout{" "}
             <a
-              className="text-blue-800 mt-1 hover:text-blue-700"
+              className="text-blue-800 hover:text-blue-700"
               href={"/login"}
             >
               LogIn

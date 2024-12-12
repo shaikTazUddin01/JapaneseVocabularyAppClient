@@ -13,6 +13,7 @@ import CreateLesson from "../pages/Admin/CreateLesson";
 import ManageLesson from "../pages/Admin/ManageLesson";
 import CreateVocabulary from "../pages/Admin/CreateVocabulary";
 import ManageVacabulary from "../pages/Admin/ManageVacabulary";
+import VocabularyPage from "../pages/UserView/Vocabulary";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: "",
         element: <Lessons />,
+      },
+      {
+        path: `lesson/:id`,
+        element: <VocabularyPage />,
       },
       {
         path: "tutorials",
