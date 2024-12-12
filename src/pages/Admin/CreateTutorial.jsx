@@ -18,7 +18,6 @@ const[createNewTutorial]=useCreateTutorialMutation()
 
     try {
       const res = await createNewTutorial(newTutorial);
-      console.log(res);
       if (res?.data) {
         toast.success("New tutorial Added", { id: toastId, duration: 3000 });
       } else {
