@@ -8,9 +8,24 @@ import { useLoginApiMutation } from "../../redux/Features/Auth/authApi";
 import { useDispatch } from "react-redux";
 import { jwtDecode } from "jwt-decode";
 import { authInfo } from "../../redux/Features/Auth/authSlice";
+import { useState } from "react";
 const Login = () => {
   const navigate = useNavigate();
   const [login] = useLoginApiMutation();
+  const [defaultUserInfo, setDefaultUserInfo] = useState({});
+
+  const DemoUserInFo = () => {
+    setDefaultUserInfo({
+      email: "taz@gmail.com",
+      password: "123456",
+    });
+  };
+  const DemoAdminInFo = () => {
+    setDefaultUserInfo({
+      email: "tihan@gmail.com",
+      password: "123456",
+    });
+  };
   // dispatch
   const dispatch = useDispatch();
   const handleLogin = async (data) => {
@@ -26,14 +41,13 @@ const Login = () => {
         dispatch(authInfo({ data: userInfo, token: token }));
 
         toast.success("login success", { id: toastId, duration: 3000 });
-        if (userInfo?.role=="USER") {
+        // console.log("--->",userInfo);
+        if (userInfo?.role == "USER") {
           navigate("/");
-        }else if(userInfo?.role=="ADMIN"){
+        } else if (userInfo?.role == "ADMIN") {
           navigate("/admin");
-
-        }else{
+        } else {
           navigate("/login");
-
         }
       } else {
         toast.error(res?.error?.data?.message, { id: toastId, duration: 3000 });
@@ -42,6 +56,7 @@ const Login = () => {
       toast.error(error, { id: toastId, duration: 3000 });
     }
   };
+  
   return (
     <div
       className=" min-h-screen w-full lg:p-20 bg-cover flex justify-center items-center"
@@ -61,8 +76,23 @@ const Login = () => {
               Wellcome
             </h1>
             <p>日本語を学ぶには学びましょう</p>
+
+            <div className="flex gap-2 justify-center">
+              <button
+                className="bg-blue-600 rounded-md px-2 text-white font-semibold"
+                onClick={() => DemoUserInFo()}
+              >
+                Demo User
+              </button>
+              <button
+                className="bg-blue-600 rounded-md px-2 text-white font-semibold"
+                onClick={() => DemoAdminInFo()}
+              >
+                Demo Admin
+              </button>
+            </div>
           </div>
-          <JPForm onSubmit={handleLogin}>
+          <JPForm onSubmit={handleLogin} defaultValues={defaultUserInfo}>
             <div className="space-y-2 text-left">
               <JPInput
                 label="Email"
@@ -80,7 +110,7 @@ const Login = () => {
                 variant="bordered"
                 // defaultvalue="1234567"
               />
-             
+
               <button
                 className="w-full border bg-sky-600 rounded-xl py-[7px] text-white font-semibold hover:bg-sky-700
               "

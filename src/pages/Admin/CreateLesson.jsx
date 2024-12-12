@@ -23,7 +23,7 @@ const[createNewLesson]=useCreateLessonMutation()
 
     try {
       const res = await createNewLesson(newLesson);
-      console.log(res);
+      // console.log(res);
       if (res?.data) {
         toast.success("New Lesson Added", { id: toastId, duration: 3000 });
       } else {
@@ -34,11 +34,11 @@ const[createNewLesson]=useCreateLessonMutation()
     }
   };
   return (
-    <div className="min-h-[81vh] flex flex-col items-center py-20">
+    <div className="min-h-[81vh] flex flex-col items-center py-10 md:py-20">
       <h1 className="text-3xl text-center mb-3 font-bold text-gray-900">
         Create New Lesson
       </h1>
-      <div className="w-[45%] mx-auto shadow-xl rounded-lg bg-white">
+      <div className="w-full md:w-[55%] lg:w-[45%] mx-auto shadow-xl rounded-lg bg-white">
         <JPForm onSubmit={handleCreate}>
           <div className="space-y-2">
             <JPInput name={"lessonName"} label={"Lesson Name"} type={"text"} />

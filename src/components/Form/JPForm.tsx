@@ -1,22 +1,20 @@
-import React, { useEffect } from "react";
-import {
-  FormProvider,
-  useForm,
-} from "react-hook-form";
+import React, { useEffect, useMemo } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 
 const JPForm = ({ onSubmit, children, defaultValues }) => {
-  const formConfig = {};
-  const methods = useForm(formConfig);
+ 
+  const methods = useForm({ defaultValues });
 
   useEffect(() => {
     if (defaultValues) {
-      methods.reset(defaultValues);
+      methods.reset(defaultValues); 
     }
-  }, [defaultValues, methods]);
+  }, [defaultValues]); 
+  
 
   const submit = (data) => {
     onSubmit(data);
-    methods.reset();
+    methods.reset(); 
   };
 
   return (

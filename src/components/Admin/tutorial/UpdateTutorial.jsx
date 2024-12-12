@@ -13,7 +13,7 @@ const UpdateTutorial = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [UpdateTutorial] = useUpdateTutorialMutation();
 
-  console.log("-->", item);
+  // console.log("-->", item);
 
   const showModal = () => {
     setIsModalOpen(true);

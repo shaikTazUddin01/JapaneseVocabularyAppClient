@@ -43,7 +43,7 @@ const ManageTutorial = () => {
   // get tutorial data
   const { data: tutotialData, isLoading, isFetching } = useGetTutorialQuery(undefined);
 
-  console.log(tutotialData?.data);
+  // console.log(tutotialData?.data);
 
   const data = tutotialData?.data?.map((tutorial,idx) => {
     return {

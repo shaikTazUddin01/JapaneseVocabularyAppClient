@@ -77,7 +77,7 @@ const Navbar = () => {
                     <a href="/tutorials">Tutorials</a>
                   </li>
                   <li className="bg-blue-600 hover:bg-blue-700 py-1 px-1 rounded text-center text-white cursor-pointer"  onClick={() => handleLogOut()}>
-                    <a href="/tutorials">Log Out</a>
+                    Log Out
                   </li>
                 </ul>
               </Drawer>

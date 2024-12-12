@@ -25,7 +25,7 @@ const Registration = () => {
       formData.append("image", imageFile);
 
       const res = await createUser(formData);
-      console.log(res?.error?.data?.message);
+      // console.log(res?.error?.data?.message);
       if (res?.data) {
         toast.success("registration success", { id: toastId, duration: 3000 });
         nevigate("/login");

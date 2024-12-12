@@ -29,7 +29,7 @@ const DeleteVoc = ({ item }) => {
                 vocabularyId:item?.vocId
             }
 
-            console.log("-->",deleteditem);
+            // console.log("-->",deleteditem);
           const res = await deleteVoc(deleteditem);
 
           if (res?.data) {

@@ -5,8 +5,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
   baseUrl:
-  "http://localhost:3000/api"
-  
+  "https://jananese-voc-server.vercel.app/api"
+  // "http://localhost:3000/api"
   ,
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {

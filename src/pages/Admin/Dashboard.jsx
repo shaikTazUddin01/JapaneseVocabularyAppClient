@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   const { data: totalVideo } = useGetTutorialQuery();
 
-  console.log(lessonDate?.data);
+  // console.log(lessonDate?.data);
 
   const totalVocabulary = lessonDate?.data?.reduce(
     (acc, curr) => curr?.vocabulary?.length + acc,

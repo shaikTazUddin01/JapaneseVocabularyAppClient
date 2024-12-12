@@ -74,7 +74,7 @@ const ManageUser = () => {
   }));
 
   return (
-    <div className="p-2">
+    <div className="md:p-2 h-full">
       <h1 className="text-3xl text-center mb-4 font-bold text-gray-900">
         User Management
       </h1>

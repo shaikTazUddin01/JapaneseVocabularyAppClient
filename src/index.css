@@ -9,3 +9,8 @@
 .ant-drawer-header{
   display: none !important;
 }
+
+
+span.ant-layout-sider-zero-width-trigger.ant-layout-sider-zero-width-trigger-left {
+  display: none !important;
+}

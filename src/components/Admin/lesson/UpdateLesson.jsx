@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Button, Modal } from "antd";
@@ -14,7 +15,7 @@ const UpdateLesson = ({ item }) => {
   const [updateLesson] = useUpdateLessonMutation();
   const {data:userLesson}=useGetLessonQuery()
 
-    console.log("-->", userLesson);
+    // console.log("-->", userLesson);
 
   const showModal = () => {
     setIsModalOpen(true);

@@ -18,7 +18,7 @@ const UpdateVoc = ({ item }) => {
   const [UpdateVoc] = useUpdateVocMutation();
 
   const { data: userLesson } = useGetLessonQuery();
-  console.log("-->", item);
+  // console.log("-->", item);
 
   const showModal = () => {
     setIsModalOpen(true);

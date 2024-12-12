@@ -21,7 +21,7 @@ const DeleteTutorial = ({ id }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const toastId = toast.loading("Loading...");
-        console.log(id);
+        // console.log(id);
 
         try {
           const res = await deleteTutorial(id);
