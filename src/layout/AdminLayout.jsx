@@ -53,6 +53,18 @@ const AdminLayout = () => {
       label: "Manage Vocabulary",
       path: "/admin/manageVocabulary",
     },
+    {
+      key: "7",
+      icon: <UploadOutlined />,
+      label: "Create Tutorial",
+      path: "/admin/createTutorial",
+    },
+    {
+      key: "8",
+      icon: <UploadOutlined />,
+      label: "Manage Tutorial",
+      path: "/admin/manageTutorial",
+    },
   ];
 
   return (

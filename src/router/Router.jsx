@@ -14,6 +14,8 @@ import ManageLesson from "../pages/Admin/ManageLesson";
 import CreateVocabulary from "../pages/Admin/CreateVocabulary";
 import ManageVacabulary from "../pages/Admin/ManageVacabulary";
 import VocabularyPage from "../pages/UserView/Vocabulary";
+import CreateTutorial from "../pages/Admin/CreateTutorial";
+import ManageTutorial from "../pages/Admin/ManageTutorial";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +67,14 @@ export const router = createBrowserRouter([
       {
         path: "manageVocabulary",
         element: <ManageVacabulary />,
+      },
+      {
+        path: "createTutorial",
+        element: <CreateTutorial />,
+      },
+      {
+        path: "manageTutorial",
+        element: <ManageTutorial />,
       },
     ],
   },
