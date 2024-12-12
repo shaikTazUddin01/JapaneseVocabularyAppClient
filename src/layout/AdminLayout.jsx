@@ -8,7 +8,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
-import bg from "../assets/theme.png"
+import bg from "../assets/theme.png";
 const { Header, Sider, Content } = Layout;
 
 const AdminLayout = () => {
@@ -73,12 +73,18 @@ const AdminLayout = () => {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        className="h-screen sticky top-0"
+        className="h-screen sticky top-0 overflow-hidden"
       >
-        <div className="demo-logo-vertical" />
+        <div className="demo-logo-vertical overflow-hidden" />
+        <a
+          href="/"
+          className="font-bold text-2xl cursor-pointer hover:text-blue-600 text-white flex justify-center items-center pt-4 "
+        >
+          日本語 
+        </a>
 
         <Menu
-          className="pt-10"
+          className="pt-2"
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
@@ -96,7 +102,10 @@ const AdminLayout = () => {
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0 }} className="sticky top-0 bg-[#001529] z-20">
+        <Header
+          style={{ padding: 0 }}
+          className="sticky top-0 bg-[#001529] z-20"
+        >
           <Button
             className="text-white"
             type="text "
@@ -109,8 +118,13 @@ const AdminLayout = () => {
             }}
           />
         </Header>
-        <Content className="p-5 bg-cover bg-no-repeat" style={{backgroundImage:`url(${bg})`}}>
-          <Outlet />
+        <Content
+          className="bg-cover bg-no-repeat"
+          style={{ backgroundImage: `url(${bg})` }}
+        >
+          <div className="bg-[#2423233f] h-full p-5">
+            <Outlet />
+          </div>
         </Content>
       </Layout>
     </Layout>

@@ -4,15 +4,17 @@ import { Button, Modal } from "antd";
 import JPForm from "../../Form/JPForm";
 import JPInput from "../../Form/JPInput";
 import { toast } from "sonner";
-import { useUpdateLessonMutation } from "../../../redux/Features/Lesson/lessonApi";
+import { useGetLessonQuery, useUpdateLessonMutation } from "../../../redux/Features/Lesson/lessonApi";
+import { MdEditDocument } from "react-icons/md";
 
 // import { toast } from "sonner";
 
 const UpdateLesson = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updateLesson] = useUpdateLessonMutation();
+  const {data:userLesson}=useGetLessonQuery()
 
-  //   console.log("-->", item);
+    console.log("-->", userLesson);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -39,9 +41,14 @@ const UpdateLesson = ({ item }) => {
     }
   };
 
+  
+
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button color="primary" variant="outlined" onClick={showModal} className="flex items-center gap-1">
+        <span className="text-xl">
+        <MdEditDocument />
+        </span>
         Update
       </Button>
       <Modal open={isModalOpen} footer={null} onCancel={handleCancel}>
@@ -69,6 +76,7 @@ const UpdateLesson = ({ item }) => {
                     type={"number"}
                     defaultFieldValue={item?.number}
                   />
+                  
                 </div>
                 <button
                   className="w-full bg-blue-600 py-[6px] rounded-md text-white font-semibold"

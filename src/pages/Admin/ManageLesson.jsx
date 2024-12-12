@@ -10,7 +10,7 @@ const columns = [
     title: "Lesson Name",
     dataIndex: "name",
     key: "name",
-    render: (text) => <a>{text}</a>,
+   
   },
 
   {
@@ -61,13 +61,16 @@ const ManageLesson = () => {
 
   return (
     <>
-      <h1 className="text-2xl text-center mb-2 font-bold">Lesson Management</h1>
+    <div className="p-2">
+      <h1 className="text-3xl text-center mb-4 font-bold text-gray-900">Lesson Management</h1>
       <Table
         columns={columns}
         dataSource={data}
         scroll={{ x: 400 }}
         loading={isLoading || isFetching}
-      />
+        className="bg-white rounded-lg"
+        />
+        </div>
     </>
   );
 };

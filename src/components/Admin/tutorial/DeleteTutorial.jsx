@@ -4,10 +4,11 @@ import Swal from "sweetalert2";
 import { toast } from "sonner";
 import { Button } from "antd";
 import { useDeleteTutorialMutation } from "../../../redux/Features/Tutorial/tutorialApi";
+import { MdDeleteSweep } from "react-icons/md";
 
 const DeleteTutorial = ({ id }) => {
   // delete lesson
-const [deleteTutorial]=useDeleteTutorialMutation()
+  const [deleteTutorial] = useDeleteTutorialMutation();
   const handleDelete = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -23,7 +24,6 @@ const [deleteTutorial]=useDeleteTutorialMutation()
         console.log(id);
 
         try {
-          
           const res = await deleteTutorial(id);
 
           if (res?.data) {
@@ -47,14 +47,18 @@ const [deleteTutorial]=useDeleteTutorialMutation()
 
   return (
     <div>
-      <Button danger onClick={() => handleDelete()}>
+      <Button
+        danger
+        onClick={() => handleDelete()}
+        className="flex items-center gap-1"
+      >
+        <span className="text-xl">
+          <MdDeleteSweep />
+        </span>
         Delete
       </Button>
     </div>
   );
 };
-
-
-
 
 export default DeleteTutorial;

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { toast } from "sonner";
 import { Button } from "antd";
 import { useDeleteVocMutation } from "../../../redux/Features/Lesson/lessonApi";
+import { MdDeleteSweep } from "react-icons/md";
 
 const DeleteVoc = ({ item }) => {
   // delete lesson
@@ -52,9 +53,12 @@ const DeleteVoc = ({ item }) => {
 
   return (
     <div>
-      <Button danger onClick={() => handleDelete()}>
-        Delete
-      </Button>
+        <Button danger onClick={() => handleDelete()} className="flex items-center gap-1">
+              <span className="text-xl">
+            <MdDeleteSweep />
+              </span>
+              Delete
+            </Button>
     </div>
   );
 };

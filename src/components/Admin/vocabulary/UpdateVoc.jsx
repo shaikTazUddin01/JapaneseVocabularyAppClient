@@ -4,7 +4,12 @@ import { Button, Modal } from "antd";
 import JPForm from "../../Form/JPForm";
 import JPInput from "../../Form/JPInput";
 import { toast } from "sonner";
-import { useUpdateVocMutation } from "../../../redux/Features/Lesson/lessonApi";
+import {
+  useGetLessonQuery,
+  useUpdateVocMutation,
+} from "../../../redux/Features/Lesson/lessonApi";
+import { MdEditDocument } from "react-icons/md";
+import JPSelect from "../../Form/JPSelect";
 
 // import { toast } from "sonner";
 
@@ -12,6 +17,7 @@ const UpdateVoc = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [UpdateVoc] = useUpdateVocMutation();
 
+  const { data: userLesson } = useGetLessonQuery();
   console.log("-->", item);
 
   const showModal = () => {
@@ -50,11 +56,25 @@ const UpdateVoc = ({ item }) => {
     }
   };
 
+  const lessonNo = userLesson?.data?.reduce((acc, cur) => {
+    acc.push({ name: cur?.lessonNumber });
+    return acc;
+  }, []);
+
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button
+        color="primary"
+        variant="outlined"
+        onClick={showModal}
+        className="flex items-center gap-1"
+      >
+        <span className="text-xl">
+          <MdEditDocument />
+        </span>
         Update
       </Button>
+
       <Modal open={isModalOpen} footer={null} onCancel={handleCancel}>
         <div>
           <h1 className="text-xl font-semibold text-center mt-2 -mb-2">
@@ -98,9 +118,16 @@ const UpdateVoc = ({ item }) => {
                 </div>
                 <div>
                   <label htmlFor="">Lesson No</label>
-                  <JPInput
+                  {/* <JPInput
                     name={"lessonNumber"}
                     label={"lesson Number"}
+                    defaultFieldValue={item?.lessonNumber}
+                  /> */}
+
+                  <JPSelect
+                    items={lessonNo}
+                    label={"Lesson"}
+                    name={"lessonNumber"}
                     defaultFieldValue={item?.lessonNumber}
                   />
                 </div>

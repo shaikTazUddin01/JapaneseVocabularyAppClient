@@ -5,6 +5,7 @@ import JPForm from "../../Form/JPForm";
 import JPSelect from "../../Form/JPSelect";
 import { useUpdateUserMutation } from "../../../redux/Features/Auth/authApi";
 import { toast } from "sonner";
+import { FaUserEdit } from "react-icons/fa";
 
 const UpdateUser = ({ userInFo }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,7 +43,10 @@ const handleCancel=()=>{
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button color="primary" variant="outlined" onClick={showModal} className="flex items-center gap-1">
+      <span className="text-xl">
+      <FaUserEdit />
+      </span>
         Update
       </Button>
       <Modal open={isModalOpen}  footer={null} onCancel={handleCancel}>

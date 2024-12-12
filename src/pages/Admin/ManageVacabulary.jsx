@@ -6,6 +6,12 @@ import DeleteVoc from "../../components/Admin/vocabulary/DeleteVoc";
 import UpdateVoc from "../../components/Admin/vocabulary/UpdateVoc";
 
 const columns = [
+  {
+    title: "Lesson No.",
+    dataIndex: "lessonNumber",
+    key: "lessonNumber",
+    width:"10%"
+  },
     {
         title: "Word",
         dataIndex: "word",
@@ -26,15 +32,12 @@ const columns = [
         title: "When to Say",
         dataIndex: "whenToSay",
         key: "whenToSay",
-      },
-      {
-        title: "Lesson No.",
-        dataIndex: "lessonNumber",
-        key: "lessonNumber",
+        width:"25%"
       },
       {
         title: "Action",
         key: "action",
+        
         render: (item) => (
           <Space size="middle">
             <UpdateVoc item={item} />
@@ -71,13 +74,17 @@ const ManageVacabulary = () => {
 
   return (
     <>
-      <h1 className="text-2xl text-center mb-2 font-bold">Vocabulary Management</h1>
+    <div className="px-2">
+      <h1 className="text-3xl text-center mb-4 font-bold">Vocabulary Management</h1>
       <Table
         columns={columns}
         dataSource={data}
         scroll={{ x: 400 }}
         loading={isLoading || isFetching}
-      />
+        className="bg-white rounded-lg"
+      
+        />
+        </div>
     </>
   );
 };

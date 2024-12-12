@@ -5,6 +5,7 @@ import JPForm from "../../Form/JPForm";
 import JPInput from "../../Form/JPInput";
 import { toast } from "sonner";
 import { useUpdateTutorialMutation } from "../../../redux/Features/Tutorial/tutorialApi";
+import { MdEditDocument } from "react-icons/md";
 
 // import { toast } from "sonner";
 
@@ -43,9 +44,18 @@ const UpdateTutorial = ({ item }) => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button
+        color="primary"
+        variant="outlined"
+        onClick={showModal}
+        className="flex items-center gap-1"
+      >
+        <span className="text-xl">
+          <MdEditDocument />
+        </span>
         Update
       </Button>
+
       <Modal open={isModalOpen} footer={null} onCancel={handleCancel}>
         <div>
           <h1 className="text-xl font-semibold text-center mt-2 -mb-2">

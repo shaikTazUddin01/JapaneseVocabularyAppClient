@@ -81,11 +81,15 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="p-5">
+      <div className="px-5">
       {/* manage User */}
+      <div className="mt-8">
       <ManageUser />
+      </div>
       {/* manage lesson */}
+      <div className="mt-8">
       <ManageLesson />
+      </div>
       </div>
     </div>
   );

@@ -17,15 +17,12 @@ const columns = [
     dataIndex: "name",
     key: "name",
   },
-  {
-    title: "Role",
-    key: "role",
-    dataIndex: "role",
-  },
+
   {
     title: "Video Link",
     key: "videoLink",
     dataIndex: "videoLink",
+    width:"40%"
   },
   {
     title: "Action",
@@ -53,19 +50,20 @@ const ManageTutorial = () => {
       key: tutorial?._id,
       no:idx+1,
       name: tutorial?.authId?.name,
-      role: tutorial?.authId?.role,
+      
       videoLink:tutorial?.videoLink
     };
   });
 
   return (
     <>
-      <h1 className="text-2xl text-center mb-2 font-bold">Tutorial Management</h1>
+      <h1 className="text-3xl text-center mb-4 font-bold">Tutorial Management</h1>
       <Table
         columns={columns}
         dataSource={data}
         scroll={{ x: 400 }}
         loading={isLoading || isFetching}
+        className="bg-white rounded-lg"
       />
     </>
   );

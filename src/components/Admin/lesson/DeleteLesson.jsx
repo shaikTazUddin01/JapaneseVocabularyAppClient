@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { useDeleteLessonMutation } from "../../../redux/Features/Lesson/lessonApi";
 import { toast } from "sonner";
 import { Button } from "antd";
+import { MdDeleteSweep } from "react-icons/md";
 
 const DeleteLesson = ({ item }) => {
   // delete lesson
@@ -45,7 +46,10 @@ const DeleteLesson = ({ item }) => {
 
   return (
     <div>
-      <Button danger onClick={() => handleDelete(item?.key)}>
+      <Button danger onClick={() => handleDelete(item?.key)} className="flex items-center gap-1">
+        <span className="text-xl">
+      <MdDeleteSweep />
+        </span>
         Delete
       </Button>
     </div>

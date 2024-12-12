@@ -46,10 +46,10 @@ const CreateVocabulary = () => {
 
   return (
     <div className="min-h-[81vh] flex flex-col items-center py-10">
-      <h1 className="text-2xl text-center font-semibold">
+      <h1 className="text-3xl text-center font-semibold mb-4">
         Create New Vocabulary
       </h1>
-      <div className="w-[45%] mx-auto shadow-xl rounded-lg border mt-1">
+      <div className="w-[45%] mx-auto shadow-xl rounded-lg border mt-1 bg-white">
         <JPForm onSubmit={handleCreate}>
           <div className="space-y-2">
             <JPInput name={"word"} label={"Word"} />
@@ -58,7 +58,7 @@ const CreateVocabulary = () => {
             <JPInput name={"whenToSay"} label={"When to Say"} />
             <JPSelect items={lessonNo} label={"Lesson"} name={"lessonNumber"} />
             <button
-              className="w-full bg-blue-600 py-[7px] rounded-md text-white font-semibold"
+              className="w-full text-[16px] bg-blue-600 py-2 rounded-md text-white font-semibold"
               type="submit"
             >
               Create Vocabulary
