@@ -5,7 +5,7 @@ import Footer from "../components/shared/Footer";
 
 const UserLayout = () => {
     return (
-        <div>
+        <div className="bg-gradient-to-br from-blue-50 to-white">
             {/* navbar */}
             <Navbar/>
             <Outlet/>

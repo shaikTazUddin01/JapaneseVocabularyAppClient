@@ -33,9 +33,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-gray-800 shadow-sm sticky top-0 z-30 text-white">
-      {/* Navbar Start */}
-      <div className="navbar-start">
+    <div className=" bg-gray-800 shadow-sm sticky top-0 z-30 text-white">
+     <div className=" navbar max-w-7xl mx-auto" >
+       {/* Navbar Start */}
+       <div className="navbar-start">
         {/* Dropdown for Mobile View */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -88,20 +89,30 @@ const Navbar = () => {
         )}
         {/* toggle */}
         {toggle && (
-          <div className=" shadow-xl rounded-md absolute top-10 p-5 z-20 bg-gray-800 text-white border ">
+          <div className=" shadow-xl rounded-md absolute top-10 p-5 z-20 bg-gray-800 text-white border text-center">
             <h1> {currentUser?.name}</h1>
             <h1>{currentUser?.email}</h1>
 
             <div className="h-[1px] w-full bg-[#a8a8a8] my-1"></div>
+            <div className="space-y-1">
+            {
+              currentUser?.role=="ADMIN"&&
+              <a href="/admin">
+
+              <button  className="bg-blue-600 px-2 py-[2px] rounded-md text-white w-full">Dashboard</button>
+              </a>
+            }
             <button
               className="bg-blue-600 px-2 py-[2px] rounded-md text-white w-full"
               onClick={() => handleLogOut()}
             >
               Log out
             </button>
+            </div>
           </div>
         )}
       </div>
+     </div>
     </div>
   );
 };

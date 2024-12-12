@@ -18,6 +18,13 @@ export const lessonApi = baseApi.injectEndpoints({
       }),
       providesTags: ["lesson"],
     }),
+    getSpecificLesson: builder.query({
+      query: (id) => ({
+        url: `/lesson/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["lesson"],
+    }),
     DeleteLesson: builder.mutation({
       query: (id) => ({
         url: `/lesson/delete/${id}`,
@@ -81,5 +88,6 @@ export const {
   useUpdateLessonMutation,
   useAddVocMutation,
   useDeleteVocMutation,
-  useUpdateVocMutation
+  useUpdateVocMutation,
+  useGetSpecificLessonQuery
 } = lessonApi;
