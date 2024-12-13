@@ -10,6 +10,7 @@ import {
 } from "../../../redux/Features/Lesson/lessonApi";
 import { MdEditDocument } from "react-icons/md";
 import JPSelect from "../../Form/JPSelect";
+import useUser from "../../../hooks/useUser";
 
 // import { toast } from "sonner";
 
@@ -18,6 +19,7 @@ const UpdateVoc = ({ item }) => {
   const [UpdateVoc] = useUpdateVocMutation();
 
   const { data: userLesson } = useGetLessonQuery();
+  const currentUser=useUser()
   // console.log("-->", item);
 
   const showModal = () => {
@@ -37,6 +39,7 @@ const UpdateVoc = ({ item }) => {
         meaning: data?.meaning,
         whenToSay: data?.whenToSay,
         LessonNo: data?.lessonNumber,
+        adminEmail:currentUser?.email
       };
 
       const res = await UpdateVoc({

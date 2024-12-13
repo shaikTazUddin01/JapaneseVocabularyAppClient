@@ -34,6 +34,12 @@ const columns = [
     width: "25%",
   },
   {
+    title: "Created By",
+    dataIndex: "adminEmail",
+    key: "adminEmail",
+    width: "10%",
+  },
+  {
     title: "Action",
     key: "action",
     render: (item) => (
@@ -63,6 +69,7 @@ const ManageVocabulary = () => {
       pronunciation: vocab.pronunciation,
       whenToSay: vocab.whenToSay,
       lessonNumber: lesson.lessonNumber,
+      adminEmail:vocab?.adminEmail,
       lessonId: lesson._id,
       vocId: vocab?._id,
     }))

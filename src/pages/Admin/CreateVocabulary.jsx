@@ -22,9 +22,9 @@ const CreateVocabulary = () => {
       whenToSay: data?.whenToSay,
       lessonNo: Number(data?.lessonNumber),
       adminEmail: currentUser?.email,
-      meaning:data?.meaning
+      meaning: data?.meaning,
     };
-
+console.log(newVoc);
     try {
       const res = await addedVoc(newVoc);
 
